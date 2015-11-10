@@ -1,6 +1,6 @@
 <?php
-// Setup File:
 
+// Setup File:
 error_reporting(0);
 
 # Database Connection:
@@ -17,7 +17,7 @@ include('functions/sandbox.php');
 # Site Setup:
 $debug = data_setting_value($dbc, 'debug-status');
 
-$site_title = 'AtomCMS 2.0';
+$site_title = 'AtomCMS 3.0';
 
 if(isset($_GET['page'])) {
 	
