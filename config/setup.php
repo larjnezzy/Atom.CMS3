@@ -19,7 +19,7 @@ $debug = data_setting_value($dbc, 'debug-status');
 
 $path = get_path();
 
-$site_title = 'AtomCMS 2.0';
+$site_title = 'AtomCMS 3.0';
 
 if(!isset($path['call_parts'][0]) || $path['call_parts'][0] == '' ) {
 	
