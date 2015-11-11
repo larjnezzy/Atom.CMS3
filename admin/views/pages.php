@@ -12,21 +12,21 @@
 		</a>					
 						
 		<? 
-		
-			$q = "SELECT * FROM posts WHERE type = 1 ORDER BY title ASC";
-			$r = mysqli_query($dbc, $q);
-		
-			while($list = mysqli_fetch_assoc($r)) { 
+
+      $stmt = $dbc->query("SELECT * FROM posts WHERE type = 1 ORDER BY title ASC");
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      
+      while($data= $stmt->fetch()){
 			
-				$blurb = substr(strip_tags($list['body']), 0, 160);
+				$blurb = substr(strip_tags($data['body']), 0, 160);
 					
 			?>
 
-			<div id="page_<?=$list['id']?>" class="list-group-item <?selected($list['id'], $opened['id'], 'active')?>">
-				<h4 class="list-group-item-heading"><?=$list['title']?>
+			<div id="page_<?=$data['id']?>" class="list-group-item <?selected($data['id'], $opened['id'], 'active')?>">
+				<h4 class="list-group-item-heading"><?=$data['title']?>
 				<span class="pull-right">
-					<a href="#" id="del_<?=$list['id']?>" class="btn btn-danger btn-delete"><i class="fa fa-trash-o"></i></a>
-					<a href="index.php?page=pages&id=<?=$list['id']?>" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
+					<a href="#" id="del_<?=$data['id']?>" class="btn btn-danger btn-delete"><i class="fa fa-trash-o"></i></a>
+					<a href="index.php?page=pages&id=<?=$data['id']?>" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
 				</span>
 				
 				</h4>
