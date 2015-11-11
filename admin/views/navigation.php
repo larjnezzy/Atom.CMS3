@@ -23,7 +23,7 @@
   
         $stmt = $dbc->query("SELECT * FROM navigation ORDER BY position ASC");
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        
+         
         while($data= $stmt->fetch()){?> 
   			
   			<form class="form-horizontal nav-form" action="index.php?page=navigation&id=<?=$data['id']?>" method="post" role="form">
