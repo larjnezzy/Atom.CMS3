@@ -18,7 +18,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <style>
-	
+	.form-btn-row div{
+	  margin-top:10px;
+	  margin-bottom:10px;
+	}
 	.form-control, button, .btn, .navbar {
 	  border-radius:0px !important;
 	}
