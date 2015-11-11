@@ -47,18 +47,18 @@
 
 			if(isset($_POST['submitted']) == 1) {
 				
-				$first = mysqli_real_escape_string($dbc, $_POST['first']);
-				$last = mysqli_real_escape_string($dbc, $_POST['last']);
+				
 				
 				if($_POST['password'] != '') {
 					
 					if($_POST['password'] == $_POST['passwordv']) {
 						
-						$password = " password = SHA1('$_POST[password]'),";
+						$password = sha1($_POST['password']);
 						$verify = true;
 						
 					} else {
 						
+            
 						$verify = false;
 						
 					}					
@@ -69,32 +69,39 @@
 					
 				}
 				
+				$data = new User($_POST['first'],$_POST['last'],$_POST['email'],$_POST['status']);
+        
 				if(isset($_POST['id']) != '') {
 					
 					$action = 'updated';
-					$q = "UPDATE users SET first = '$first', last = '$last', email = '$_POST[email]', $password status = $_POST[status] WHERE id = $_GET[id]";
-					$r = mysqli_query($dbc, $q);
+          
 					
+          if($verify == true) {
+           $stmt = $dbc->prepare("UPDATE users SET first = :first, last = :last, email = :email, password = '$password', status = :status WHERE id = $_GET[id]");
+          }else{
+           $stmt = $dbc->prepare("UPDATE users SET first = :first, last = :last, email = :email, status = :status WHERE id = $_GET[id]"); 
+          }
+          $stmt->execute((array)$data);
+          
 				} else {
 					
 					$action = 'added';
-					
-					$q = "INSERT INTO users (first, last, email, password, status) VALUES ('$first', '$last', '$_POST[email]', SHA1('$_POST[password]'), '$_POST[status]')";
+					$stmt = $dbc->prepare("INSERT INTO users (first, last, email, password, status) VALUES (:first, :last, :email, :password, :status)");
 					
 					if($verify == true) {
-						$r = mysqli_query($dbc, $q);
+						$stmt->execute((array)$data);
 					}
 
 				}
 				
 
 				
-				if($r){
+				if ($stmt->fetchColumn() > 0) {
 					
 					$message = '<p class="alert alert-success">User was '.$action.'!</p>';
-					
+
 				} else {
-					
+
 					$message = '<p class="alert alert-danger">User could not be '.$action.' because: '.mysqli_error($dbc);
 					if($verify == false) {
 						$message .= '<p class="alert alert-danger">Password fields empty and/or do not match.</p>';
