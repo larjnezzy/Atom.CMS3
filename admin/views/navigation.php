@@ -6,7 +6,18 @@
   	
   	<div class="col-md-3">
   		
-  		<ul id="sort-nav" class="list-group">
+  		<table class="table table-bordered">
+  		  
+  		  <thead>
+  		    <tr>
+  		      <th>ID</th>
+  		      <th>Label</th>
+  		      <th>Url</th>
+  		      <th></th>
+  		      <th></th>
+  		    </tr>
+  		  </thead>
+  		
   			
   			<?
   
@@ -15,13 +26,24 @@
         
         while($data= $stmt->fetch()){?>
   			
+  			<form class="form-horizontal nav-form" action="index.php?page=navigation&id=<?=$data['id']?>" method="post" role="form">
+  			<tr>
+  			  <td><?=$data['id']?></td> 
+  			  <td><input class="form-control input-sm" type="text" name="label" id="label" value="<?=$data['label']?>" placeholder="Label" autocomplete="off"></td>
+  			  <td></td>
+  			  <td></td>
+  			  <td></td>
+  			</tr>
+  			</form>
+  			
+  			<!--
   			<li id="list_<?=$data['id']?>" class="list-group-item">
   				<a id="label_<?=$data['id']?>" data-toggle="collapse" data-target="#form_<?=$data['id']?>">
   					<?=$data['label']?> <i class="fa fa-chevron-down"></i>
   				</a>
   				<div id="form_<?=$data['id']?>" class="collapse">
   
-  					<form class="form-horizontal nav-form" action="index.php?page=navigation&id=<?=$data['id']?>" method="post" role="form">
+  					
   	
   						<div class="form-group">
   							
@@ -68,10 +90,10 @@
   					
   				</div>
   			</li>
-  			
+  			-->
   			<?}?>
   
-  		</ul>
+  		</table>
   
   	</div>
   
