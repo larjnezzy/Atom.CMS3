@@ -18,7 +18,7 @@
 <!-- Summernote -->
 <script src="js/summernote.min.js"></script>
 
-<!-- Dropzone.js -->
+<!-- Dropzone.js 4.0 -->
 <script src="js/dropzone.js"></script>
 
 <!-- Atom.SaveOnBlur.js -->
