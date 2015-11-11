@@ -2,20 +2,21 @@
 
 include('../../config/connection.php');
 
-$label = mysqli_real_escape_string($dbc, $_POST['label']);
-$url = mysqli_real_escape_string($dbc, $_POST['url']);
+$stmt = $dbc->prepare("UPDATE navigation SET id = '$_POST[id]', label = ?, url = ?, status = $_POST[status] WHERE id = '$_POST[openedid]'");
 
-$q = "UPDATE navigation SET id = '$_POST[id]', label = '$label', url = '$url', status = $_POST[status] WHERE id = '$_POST[openedid]'";
-$r = mysqli_query($dbc, $q);
+$stmt->bindParam(1, $_POST['label']);
+$stmt->bindParam(2, $_POST['url']);
 
-if($r){
+$stmt->execute();
+
+if ($stmt->rowCount() > 0) {
 	
-	echo 'Saved<br>'.$q;
+	echo 'Saved';
 	
 	
 } else {
 	
-	echo mysqli_error($dbc).'<br>'.$q;
+	echo 'Error';
 
 }
 
