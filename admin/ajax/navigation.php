@@ -13,12 +13,10 @@ if ($stmt->rowCount() > 0) {
 	
 	echo 'Saved';
 	
-	
 } else {
 	
 	echo 'Error';
 
 }
-
 
 ?>

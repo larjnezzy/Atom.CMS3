@@ -1,5 +1,5 @@
 <header class="well clearfix">
-<h2>Navigation</h2>
+  <h2>Navigation</h2>
 </header>
 <main class="container-fluid">
 
@@ -14,7 +14,7 @@
   		      <th>ID</th>
   		      <th>Label</th>
   		      <th>Url</th>
-  		      <th></th>
+  		      <th>Status</th>
   		      <th></th>
   		    </tr>
   		  </thead>

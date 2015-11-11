@@ -1,7 +1,8 @@
+<header class="well clearfix">
+  <h2>Site Settings</h2>
+</header>
 <main class="container-fluid">
 
-  <h1>Site Settings</h1>
-  
   <div class="row">
   	
   	<div class="col-md-12">

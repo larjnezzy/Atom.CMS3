@@ -26,35 +26,10 @@
    margin-top:20px;
    padding:10px 20px;
  }
-	
-	html,
-	body {
-	  height: 100%;
-	  /* The html and body elements cannot have any padding or margin. */
-	}
-	
-	/* Wrapper for page content to push down footer */
-	#wrap {
-	  min-height: 100%;
-	  height: auto;
-	  /* Negative indent footer by its height */
-	  margin: 0 auto -60px;
-	  /* Pad bottom by footer height */
-	  padding: 0 0 60px;
-	}
-	
-	/* Set the fixed height of the footer here */
-	#footer {
-	  height: 60px;
-	  background-color: #f5f5f5;
-	}
-	
-	#btn-debug {
-		/*
-		position: absolute;
-		right: 5px;
-		*/
-	}	
+.note-editable {
+  min-height:200px;
+}
+
 	
 	#console-debug {
 		position: absolute;
@@ -66,11 +41,7 @@
 		background-color: #FFFFFF;
 		box-shadow: 2px 2px 5px #CCCCCC;
 	}
-	#console-debug pre {
-		
-		
-	}
-	
+
 	.avatar-container {
 		
 		width: 100px;

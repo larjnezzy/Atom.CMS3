@@ -1,8 +1,8 @@
+<header class="well clearfix">
+  <h2>Page Manager</h2>
+</header>
 <main class="container-fluid">
 
-  <h1>Page Manager</h1>
-  
-  
   <div class="row">
   	
   	<div class="col-md-3">

@@ -1,3 +1,6 @@
+<header class="well clearfix">
+  <h2>User Manager</h2>
+</header>
 <main class="container-fluid">
   
   <?if(isset($opened['id'])) { ?>
@@ -19,8 +22,6 @@
   	
   	</script>
   <?}?>
-  
-  <h1>User Manager</h1>
   
   <div class="row">
   	
