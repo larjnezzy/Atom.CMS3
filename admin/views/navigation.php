@@ -1,12 +1,13 @@
+<header class="well clearfix">
+<h2>Navigation</h2>
+</header>
 <main class="container-fluid">
-  
-  <h1>Navigation</h1>
-  
+
   <div class="row">
   	
   	<div class="col-md-12">
   		
-  		<table class="table table-bordered">
+  		<table class="table table-striped">
   		  
   		  <thead>
   		    <tr>
@@ -32,7 +33,7 @@
     			  <td><input class="form-control input-sm thelabel" type="text" name="label" id="label" value="<?=$data['label']?>" placeholder="Label" autocomplete="off"></td>
     			  <td><input class="form-control input-sm" type="text" name="url" id="url" value="<?=$data['url']?>" placeholder="Url" autocomplete="off"></td>
     			  <td><input class="form-control input-sm" type="text" name="status" id="status" value="<?=$data['status']?>" placeholder="" autocomplete="off"></td>
-    			  <td><button type="submit" class="btn btn-primary">Save</button></td>
+    			  <td><button type="submit" class="btn btn-sm btn-primary">Save</button></td>
     			</tr>
   			</form>
   			

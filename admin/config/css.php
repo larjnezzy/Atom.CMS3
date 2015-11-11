@@ -22,6 +22,10 @@
 	.form-control, button, .btn, .navbar {
 	  border-radius:0px !important;
 	}
+ header.well {
+   margin-top:20px;
+   padding:10px 20px;
+ }
 	
 	html,
 	body {
