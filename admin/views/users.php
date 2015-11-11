@@ -60,82 +60,82 @@
   
   		<?if(isset($message)) { echo $message; } ?>
   		
-  		<form action="index.php?page=users&id=<?=$opened['id']?>" method="post" role="form">
+  		<div class="col-md-8">
+  		  
+  		  <form action="index.php?page=users&id=<?=$opened['id']?>" method="post" role="form">
+
+          <div class="form-group">
+            <div class="col-md-6">
+              <label for="first">First Name:</label>
+              <input class="form-control" type="text" name="first" id="first" value="<?=$opened['first']?>" placeholder="First Name" autocomplete="off">
+            </div>
+            <div class="col-md-6">
+              <label for="last">Last Name:</label>
+              <input class="form-control" type="text" name="last" id="last" value="<?=$opened['last']?>" placeholder="Last Name" autocomplete="off">
+            </div>
+            
+          </div>
+          
+          <div class="form-group">
+            <div class="col-md-6">
+              <label for="email">Email Address:</label>
+              <input class="form-control" type="text" name="email" id="email" value="<?=$opened['email']?>" placeholder="Email Address" autocomplete="off">
+            </div>
+            <div class="col-md-6">
+              <label for="status">Status:</label>
+              <select class="form-control" name="status" id="status">
+                
+                <option value="0" <?if(isset($_GET['id'])){ selected('0', $opened['status'], 'selected'); } ?>>Inactive</option>
+                <option value="1" <?if(isset($_GET['id'])){ selected('1', $opened['status'], 'selected'); } ?>>Active</option>
+                          
+              </select>
+            </div>
+          </div>
+          
+    
+          <div class="form-group">
+            <div class="col-md-6">
+              <label for="password">Password:</label>
+              <input class="form-control" type="password" name="password" id="password" value="" placeholder="Password" autocomplete="off">
+            </div>
+            <div class="col-md-6">
+              <label for="passwordv">Verify Password:</label>
+              <input class="form-control" type="password" name="passwordv" id="passwordv" value="" placeholder="Type Password Again" autocomplete="off">
+            </div>  
+          </div>
+          <div class="form-group form-btn-row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-default">Save</button>
+            </div>
+          </div>
+		
   			
-  			<div id="avatar">
-  				<?if($opened['avatar'] != ''){?>
-  	
-  					<div class="avatar-container" style="background-image: url('../uploads/<?=$opened['avatar']?>')"></div>
-  	
-  				<?}?>
-  			</div>
+    			
+    			<input type="hidden" name="submitted" value="1">
+    			<?if(isset($opened['id'])) { ?>
+    				<input type="hidden" name="id" value="<?=$opened['id']?>">
+    			<?} ?>
+    		  </form>
+        </div>
+        
+        <div class="col-md-4">
+          
+          <?if($opened['avatar'] != ''){?>
+    
+            <div class="avatar-container" style="background-image: url('../uploads/<?=$opened['avatar']?>')"></div>
+    
+          <?}?>
+         		
+  		    <?if(isset($opened['id'])) {?>
   			
-  			<div class="form-group">
-  				
-  				<label for="first">First Name:</label>
-  				<input class="form-control" type="text" name="first" id="first" value="<?=$opened['first']?>" placeholder="First Name" autocomplete="off">
-  				
-  			</div>
-  			
-  			<div class="form-group">
-  				
-  				<label for="last">Last Name:</label>
-  				<input class="form-control" type="text" name="last" id="last" value="<?=$opened['last']?>" placeholder="Last Name" autocomplete="off">
-  				
-  			</div>
-  			
-  			<div class="form-group">
-  				
-  				<label for="email">Email Address:</label>
-  				<input class="form-control" type="text" name="email" id="email" value="<?=$opened['email']?>" placeholder="Email Address" autocomplete="off">
-  				
-  			</div>						
-  
-  			<div class="form-group">
-  				
-  				<label for="status">Status:</label>
-  				<select class="form-control" name="status" id="status">
-  					
-  					<option value="0" <?if(isset($_GET['id'])){ selected('0', $opened['status'], 'selected'); } ?>>Inactive</option>
-  					<option value="1" <?if(isset($_GET['id'])){ selected('1', $opened['status'], 'selected'); } ?>>Active</option>
-  										
-  				</select>
-  				
-  			</div>
-  
-  			<div class="form-group">
-  				
-  				<label for="password">Password:</label>
-  				<input class="form-control" type="password" name="password" id="password" value="" placeholder="Password" autocomplete="off">
-  				
-  			</div>
-  			
-  			<div class="form-group">
-  				
-  				<label for="passwordv">Verify Password:</label>
-  				<input class="form-control" type="password" name="passwordv" id="passwordv" value="" placeholder="Type Password Again" autocomplete="off">
-  				
-  			</div>			
-  			
-  			<button type="submit" class="btn btn-default">Save</button>
-  			<input type="hidden" name="submitted" value="1">
-  			<?if(isset($opened['id'])) { ?>
-  				<input type="hidden" name="id" value="<?=$opened['id']?>">
-  			<?} ?>
-  		</form>
+  		      <form action="uploads.php?id=<?=$opened['id']?>" class="dropzone" id="avatar-dropzone"></form>
   		
-  		<?if(isset($opened['id'])) {?>
-  			
-  		<form action="uploads.php?id=<?=$opened['id']?>" class="dropzone" id="avatar-dropzone">
-  			
-  			<input type="file" name="file">
-  			
-  		</form>
-  		
-  		<?}?>
-  		
-  	</div>
-  		
+  		    <?}?>         
+        </div> 
+        
+        <div id="avatar"></div>
+        
+  		</div>
   </div>
 
 </main>
