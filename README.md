@@ -13,4 +13,4 @@ This is a new version of Atom.CMS.
 Thanks for watching our videos!
 
 [Alan] (https://github.com/thedigicraft)
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/03cd67ef130516d3db484c290603fba7 "githalytics.com")](http://githalytics.com/thedigicraft/atomCMS)
+
