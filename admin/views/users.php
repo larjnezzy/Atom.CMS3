@@ -44,7 +44,7 @@
   			?>
   
   			<a class="list-group-item <?selected($data['id'], $opened['id'], 'active')?>" href="index.php?page=users&id=<?=$data['id']?>">
-  				<h4 class="list-group-item-heading"><?=$data['fullname_reverse']?></h4>
+  				<h4 class="list-group-item-heading"><?=$list['fullname_reverse']?></h4>
   				<!--<p class="list-group-item-text"><?php //echo $blurb?></p>-->
   			</a>
   				
