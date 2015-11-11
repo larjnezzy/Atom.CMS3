@@ -34,18 +34,17 @@
   						
   		<?
   		
-  			$q = "SELECT * FROM users ORDER BY last ASC";
-  			$r = mysqli_query($dbc, $q);
-  		
-  			while($list = mysqli_fetch_assoc($r)) { 
+        $stmt = $dbc->query("SELECT * FROM users ORDER BY last ASC");
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        
+        while($data= $stmt->fetch()){
   			
-  				$list = data_user($dbc, $list['id']);
-  				//$blurb = substr(strip_tags($page_list['body']), 0, 160);
+  				$list = data_user($dbc, $data['id']);
   					
   			?>
   
-  			<a class="list-group-item <?selected($list['id'], $opened['id'], 'active')?>" href="index.php?page=users&id=<?=$list['id']?>">
-  				<h4 class="list-group-item-heading"><?=$list['fullname_reverse']?></h4>
+  			<a class="list-group-item <?selected($data['id'], $opened['id'], 'active')?>" href="index.php?page=users&id=<?=$data['id']?>">
+  				<h4 class="list-group-item-heading"><?=$data['fullname_reverse']?></h4>
   				<!--<p class="list-group-item-text"><?php //echo $blurb?></p>-->
   			</a>
   				
@@ -63,7 +62,7 @@
   		<form action="index.php?page=users&id=<?=$opened['id']?>" method="post" role="form">
   			
   			<div id="avatar">
-  				<?($opened['avatar'] != ''){?>
+  				<?if($opened['avatar'] != ''){?>
   	
   					<div class="avatar-container" style="background-image: url('../uploads/<?=$opened['avatar']?>')"></div>
   	
