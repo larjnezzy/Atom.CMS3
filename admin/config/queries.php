@@ -96,18 +96,17 @@
 				
 
 				
-				if ($stmt->fetchColumn() > 0) {
+				if ($stmt->rowCount() > 0) {
 					
 					$message = '<p class="alert alert-success">User was '.$action.'!</p>';
 
 				} else {
 
-					$message = '<p class="alert alert-danger">User could not be '.$action.' because: '.mysqli_error($dbc);
+					$message = '<p class="alert alert-danger">User could not be '.$action;
 					if($verify == false) {
 						$message .= '<p class="alert alert-danger">Password fields empty and/or do not match.</p>';
 					}
-					$message .= '<p class="alert alert-warning">Query: '.$q.'</p>';
-					
+				
 				}
 							
 			}
