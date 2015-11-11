@@ -4,7 +4,7 @@
   
   <div class="row">
   	
-  	<div class="col-md-3">
+  	<div class="col-md-12">
   		
   		<table class="table table-bordered">
   		  
@@ -18,22 +18,22 @@
   		    </tr>
   		  </thead>
   		
-  			
+  			<tbody>
   			<?
   
         $stmt = $dbc->query("SELECT * FROM navigation ORDER BY position ASC");
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-         
+        
         while($data= $stmt->fetch()){?> 
   			
-  			<form class="form-horizontal nav-form" action="index.php?page=navigation&id=<?=$data['id']?>" method="post" role="form">
-  			<tr>
-  			  <td><?=$data['id']?></td> 
-  			  <td><input class="form-control input-sm" type="text" name="label" id="label" value="<?=$data['label']?>" placeholder="Label" autocomplete="off"></td>
-  			  <td></td>
-  			  <td></td>
-  			  <td></td>
-  			</tr>
+  			<form data-id="<?=$data['id']?>" class="form-horizontal form-navigation" role="form">
+    			<tr>
+    			  <td><?=$data['id']?></td> 
+    			  <td><input class="form-control input-sm thelabel" type="text" name="label" id="label" value="<?=$data['label']?>" placeholder="Label" autocomplete="off"></td>
+    			  <td><input class="form-control input-sm" type="text" name="url" id="url" value="<?=$data['url']?>" placeholder="Url" autocomplete="off"></td>
+    			  <td><input class="form-control input-sm" type="text" name="status" id="status" value="<?=$data['status']?>" placeholder="" autocomplete="off"></td>
+    			  <td><button type="submit" class="btn btn-primary">Save</button></td>
+    			</tr>
   			</form>
   			
   			<!--
@@ -92,12 +92,10 @@
   			</li>
   			-->
   			<?}?>
-  
+        </tbody>
   		</table>
   
-  	</div>
-  
-  	<div class="col-md-9">
+
   
   		<?if(isset($message)) { echo $message; }?>			
   

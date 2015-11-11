@@ -2,7 +2,7 @@
 
 include('../../config/connection.php');
 
-$stmt = $dbc->prepare("UPDATE navigation SET id = '$_POST[id]', label = ?, url = ?, status = $_POST[status] WHERE id = '$_POST[openedid]'");
+$stmt = $dbc->prepare("UPDATE navigation SET label = ?, url = ?, status = $_POST[status] WHERE id = '$_GET[id]'");
 
 $stmt->bindParam(1, $_POST['label']);
 $stmt->bindParam(2, $_POST['url']);

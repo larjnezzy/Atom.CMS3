@@ -70,27 +70,25 @@
 		});
 
 
-		$('.nav-form').submit(function(event){
-			
-			var navData = $(this).serializeArray();
-			var navLabel = $('input[name=label]').val();
-			var navID = $('input[name=id]').val();
-		
+		$('.form-navigation').submit(function(event){
+		  event.preventDefault();
+			var form = $(this);
+			var id = form.data('id');
+			var data = form.serialize();
 			
 			$.ajax({
 				
-				url: "ajax/navigation.php",
-				type: "POST",
-				data: navData
-				
-			}).done(function(){
-				
-				$("#label_"+navID).html(navLabel);
-				
+				url: "ajax/navigation.php?id="+id,
+				type: "post",
+				data: data,
+				success: function(){
+				  
+				  
+				}
 			});
 			
 			
-			event.preventDefault();
+			
 			
 		});
 		
