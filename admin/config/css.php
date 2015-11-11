@@ -1,14 +1,9 @@
 <?php
 // CSS:
-
-
-
-
-
 ?>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<!-- Simplex Theme -->
+<link href="css/atom.cms3.css" rel="stylesheet">
 
 <!-- Summernote -->
 <link href="css/summernote.css" rel="stylesheet">
@@ -23,6 +18,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <style>
+	
+	.form-control, button, .btn, .navbar {
+	  border-radius:0px !important;
+	}
 	
 	html,
 	body {
