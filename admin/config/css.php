@@ -23,7 +23,7 @@
 	  border-radius:0px !important;
 	}
  header.well {
-   margin-top:20px;
+   margin-top:26px;
    padding:10px 20px;
  }
 .note-editable {
