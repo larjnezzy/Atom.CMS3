@@ -27,7 +27,5 @@ if(!isset($_SESSION['username'])) {
 </head>
 	
 <body>
-	
-	<div id="wrap">		
-			
-		<?php include(D_TEMPLATE.'/navigation.php'); // Main Navigation ?>
+		
+  <?php include(D_TEMPLATE.'/navigation.php'); // Main Navigation ?>
