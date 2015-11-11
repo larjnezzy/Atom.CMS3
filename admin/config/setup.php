@@ -10,6 +10,7 @@ include('../config/connection.php');
 DEFINE('D_TEMPLATE', 'template');
 
 # Functions:
+include('classes/user.php');
 include('functions/data.php');
 include('functions/template.php');
 include('functions/sandbox.php');
