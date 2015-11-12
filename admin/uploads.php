@@ -1,9 +1,14 @@
 <?php
 
 include('../config/connection.php');
+include('classes/user.php');
+include('functions/data.php');
+include('functions/template.php');
+include('functions/sandbox.php');
 
 $ds = DIRECTORY_SEPARATOR;  //1
 $id = $_GET['id'];
+$old = data_user($dbc, $id);
 
 $storeFolder = '../uploads';   //2
 
@@ -12,16 +17,22 @@ $newname = time();
 $random = rand(100,999);
 $name = $newname.$random.'.'.$ext;
 
-$q = "SELECT avatar FROM users WHERE id = $id";
-$r = mysqli_query($dbc, $q);
-$old = mysqli_fetch_assoc($r);
-
-
-$q = "UPDATE users SET avatar = '$name' WHERE id = $id";
-$r = mysqli_query($dbc, $q);
  
-echo $q.'<br>';
-echo mysqli_error($dbc);
+$stmt = $dbc->prepare("UPDATE users SET avatar = ? WHERE id = $id");
+
+$stmt->bindParam(1, $name);
+
+$stmt->execute(); 
+ 
+if ($stmt->rowCount() > 0) {
+  
+  echo 'Saved';
+  
+} else {
+  
+  echo 'Error';
+
+}
  
 if (!empty($_FILES)) {
      

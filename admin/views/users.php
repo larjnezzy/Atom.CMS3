@@ -14,7 +14,7 @@
   			
   			myDropzone.on("success", function(file){
   				
-  				$("#avatar").load("ajax/avatar.php?id=<?=$opened['id']?>");
+  				$(".avatar-frame").load("ajax/avatar.php?id=<?=$opened['id']?>");
   				
   			});
   	
@@ -120,20 +120,25 @@
         
         <div class="col-md-4">
           
-          <?if($opened['avatar'] != ''){?>
+
+
+          
     
-            <div class="avatar-container" style="background-image: url('../uploads/<?=$opened['avatar']?>')"></div>
-    
-          <?}?>
+
          		
   		    <?if(isset($opened['id'])) {?>
   			
-  		      <form action="uploads.php?id=<?=$opened['id']?>" class="dropzone" id="avatar-dropzone"></form>
+  		      <form action="uploads.php?id=<?=$opened['id']?>" class="dropzone" id="avatar-dropzone">
+  		        
+              <div class="avatar-frame">
+                <div class="avatar-container" style="background-image: url('../uploads/<?=$opened['avatar']?>')"></div>
+              </div>  		        
+  		        
+  		      </form>
   		
   		    <?}?>         
         </div> 
-        
-        <div id="avatar"></div>
+
         
   		</div>
   </div>

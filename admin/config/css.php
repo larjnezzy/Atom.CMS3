@@ -47,16 +47,19 @@
 		background-color: #FFFFFF;
 		box-shadow: 2px 2px 5px #CCCCCC;
 	}
-
+  .avatar-frame {
+    text-align:center;
+  }
 	.avatar-container {
 		
-		width: 100px;
-		height: 100px;
-		
-		border-radius:3px;
+		width: 200px;
+		height: 200px;
+		margin:20px auto;
+		border-radius:100px;
 		
 		background-size: cover;
 		background-position: center center;
+		background-color:#EFEFEF;
 		
 		
 	}

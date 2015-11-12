@@ -1,13 +1,14 @@
 <?php
 
 include('../../config/connection.php');
-	
+include('../classes/user.php');
+include('../functions/data.php');
+include('../functions/template.php');
+include('../functions/sandbox.php');	
+
 $id = $_GET['id'];	
 
-$q = "SELECT avatar FROM users WHERE id = $id";
-$r = mysqli_query($dbc, $q);
-
-$data = mysqli_fetch_assoc($r);
+$data = data_user($dbc, $id);
 
 ?>
 
