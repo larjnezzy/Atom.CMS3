@@ -1,10 +1,5 @@
 <?php
 // Javascript:
-
-
-
-
-
 ?>
 
 <!-- jQuery -->
@@ -38,7 +33,6 @@
 			
 		});
 		
-		
 		$(".btn-delete").on("click", function() {
 			
 			var selected = $(this).attr("id");
@@ -54,12 +48,7 @@
 				
 			}
 			
-
-			
-			//alert(selected);
-			
-		})
-		
+		});
 		
 		$("#sort-nav").sortable({
 			cursor: "move",
@@ -68,7 +57,6 @@
 				$.get("ajax/list-sort.php", order);
 			}
 		});
-
 
 		$('.form-navigation').submit(function(event){
 		  event.preventDefault();
@@ -87,14 +75,8 @@
 				}
 			});
 			
-			
-			
-			
 		});
-		
 		
 	}); // END document.ready();
 
-
-	
 </script>
