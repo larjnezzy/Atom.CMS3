@@ -3,10 +3,10 @@
 # Database Connection Here...
 
 try {
-  $db['host'] = 'localhost';
-  $db['name'] = 'atom_cms3';
-  $db['user'] = 'atom_cms';
-  $db['pass'] = 'thepassword';
+  $db['host'] = 'localhost'; // Host name
+  $db['name'] = 'atom_cms3'; // Database name
+  $db['user'] = 'atom_cms'; // Username
+  $db['pass'] = 'thepassword'; // Password
   $dbc = new PDO("mysql:host=$db[host];dbname=$db[name]", "$db[user]", "$db[pass]");
   
 }
